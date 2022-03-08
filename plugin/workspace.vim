@@ -152,7 +152,6 @@ function! s:LoadWorkspace()
       let s:workspace_save_session = 0
     endif
   endif
-  set sessionoptions-=options
 endfunction
 
 function! s:UntrailSpaces()
