@@ -1,3 +1,20 @@
+```diff
+- Note: This plugin is considered feature complete, and is no longer being maintained.
+```
+```vim
+" Feel free to use this alternative to the plugin's core autosave and session management features:
+
+" Autosave
+set noswapfile
+au BufLeave,CursorHold,FocusLost * if(getbufinfo('%')[0].changed) | do BufWritePre | sil! up | do BufWritePost | endif
+
+" Autosession
+au VimEnter * nested if (len(v:argv) == 1) | silent! source Session.vim | endif
+au VimLeave * if (len(v:argv) == 1) | mksession! | endif
+" available since v8.1.2233 (2019-10-28), v:argv doubles for both stdin and argful cases (instead of argc() and a StdinReadPre autocmd flag)
+" v:argv length check may need to be 2 if using Neovim since it includes an --embed argument on launch
+```
+---
 <p align="center">
 <img src="https://raw.githubusercontent.com/thaerkh/vim-workspace/master/wiki/screenshots/logo.png" height="220">
 </p>
